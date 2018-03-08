@@ -1,0 +1,43 @@
+Test
+ DEFINITIONS AUTOMATIC TAGS ::=
+BEGIN
+	ATag ::= SEQUENCE {
+		a1 SEQUENCE {
+			aa1 VisibleString,
+			aa2 INTEGER,
+			aa3 SEQUENCE {
+				aaa1 INTEGER,
+				aaa2 VisibleString
+			}
+		},
+		a2 VisibleString,
+		a3 BTag,
+		a4 SEQUENCE OF VisibleString,
+		a5 ENUMERATED { val1, val2, val3, val4}
+	}
+	
+	BTag ::= VisibleString
+	
+	CTag ::= ENUMERATED { val1, val2, val3, val4}
+	
+	DTag ::= SEQUENCE OF SEQUENCE OF INTEGER
+
+	ETag ::= SEQUENCE OF SEQUENCE OF SEQUENCE {
+				s1 INTEGER,
+				s2 VisibleString
+			}
+			
+	FTag ::= SEQUENCE OF SEQUENCE {
+				s1 INTEGER,
+				s2 VisibleString
+			}
+
+	GTag ::= SEQUENCE OF SEQUENCE OF ENUMERATED { val1, val2, val3, val4}
+	
+	HTag ::= CTag
+	
+	ITag ::= SEQUENCE {
+		test HTag,
+        test2 GTag
+	}
+END
