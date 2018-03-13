@@ -1,0 +1,8 @@
+SUPL-NOTIFY-RESPONSE DEFINITIONS AUTOMATIC TAGS ::=
+BEGIN
+EXPORTS Ver2-SUPLNOTIFYRESPONSE;
+Ver2-SUPLNOTIFYRESPONSE ::= SEQUENCE {
+ notificationResponse NotificationResponse OPTIONAL,
+ ...}
+NotificationResponse ::= ENUMERATED {allowed(0), notAllowed(1), ...}
+END
