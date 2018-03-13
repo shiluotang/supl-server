@@ -7,7 +7,7 @@ AC_INIT([supl-server], [1.0], [shengquangang2015@163.com])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 
-AC_CONFIG_SRCDIR([src/supl-server.cpp])
+AC_CONFIG_SRCDIR([src])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
@@ -19,6 +19,7 @@ AM_PROG_AR
 LT_INIT
 
 # Checks for libraries.
+PKG_CHECK_MODULES([OPENSSL], [openssl])
 
 # Checks for header files.
 

@@ -1,9 +1,9 @@
 ACLOCAL_AMFLAGS = -I m4
 
-AM_CPPFLAGS	= -g -Wall -I@top_srcdir@/src/asn1c/skeletons
+AM_CPPFLAGS	= -g -Wall -I@top_srcdir@/src/asn1c/skeletons @OPENSSL_CFLAGS@
 AM_CFLAGS	=
 AM_CXXFLAGS	=
-AM_LDFLAGS	=
+AM_LDFLAGS	= @OPENSSL_LIBS@
 
 lib_LTLIBRARIES = \
 libasn1c-skeletons.la \
