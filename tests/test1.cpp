@@ -4,7 +4,7 @@
 #include <string>
 #include <stdexcept>
 
-#include "../src/supl-server.hpp"
+#include "../src/server/supl-server.hpp"
 
 int main(int argc, char* argv[]) try {
     return EXIT_SUCCESS;

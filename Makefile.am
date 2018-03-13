@@ -1277,7 +1277,7 @@ libasn1c_module_rrlp14_la_LIBADD = \
 libasn1c-skeletons.la
 
 libsupl_server_la_SOURCES = \
-./src/supl-server.cpp
+./src/server/supl-server.cpp
 
 libsupl_server_la_LIBADD = \
 libasn1c-skeletons.la \
