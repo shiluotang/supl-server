@@ -1,15 +1,17 @@
 ACLOCAL_AMFLAGS = -I m4
 
-AM_CPPFLAGS	= -g -Wall -I@top_srcdir@/src/asn1c/skeletons @OPENSSL_CFLAGS@
+AM_CPPFLAGS	= -g -Wall -I@top_srcdir@/src/asn1c/skeletons $(OPENSSL_CFLAGS)
 AM_CFLAGS	=
 AM_CXXFLAGS	=
-AM_LDFLAGS	= @OPENSSL_LIBS@
+AM_LDFLAGS	= $(OPENSSL_LIBS)
 
 lib_LTLIBRARIES = \
+libsupl-server-misc.la \
 libasn1c-skeletons.la \
 libasn1c-module-supl2.la \
 libasn1c-module-rrlp14.la \
-libsupl-server.la
+libasn1c-codecxx.la \
+libsupl-server-server.la
 
 libasn1c_skeletons_la_SOURCES = \
 ./src/asn1c/skeletons/ANY.c \
@@ -1274,6 +1276,12 @@ libasn1c_module_rrlp14_la_SOURCES = \
 ./src/asn1c/module/rrlp-14.3.0/ZoneCodeList.c
 
 libasn1c_module_rrlp14_la_LIBADD = \
+libasn1c-skeletons.la
+
+libasn1c_codecxx_la_SOURCES = \
+./src/asn1c/codec.cpp
+
+libasn1c_codecxx_la_LIBADD = \
 libasn1c-skeletons.la
 
 libsupl_server_la_SOURCES = \

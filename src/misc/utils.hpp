@@ -3,8 +3,10 @@
 
 #include <ios>
 #include <locale>
+#include <vector>
+#include <algorithm>
 
-#include "macros.hpp"
+#include "../macros.hpp"
 
 SUPL_SERVER_BEGIN_DECLS
 

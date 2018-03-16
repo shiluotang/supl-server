@@ -6,59 +6,12 @@
 #include <vector>
 #include <algorithm>
 
-#include "../src/utils.hpp"
+#include "../src/misc/memblock.hpp"
+#include "../src/misc/utils.hpp"
 #include "../src/server/supl-server.hpp"
 #include "../src/asn1c/module/supl-2.0.3/SUPLSTART.h"
 
 #include <openssl/sha.h>
-
-/**
- * The class to represent a block of memory.
- *
- * \@attention This is a value symmetric class, which means it is default by
- * copy not by reference.
- */
-class memblock {
-public:
-    typedef unsigned char byte;
-    typedef std::vector<byte> buffer_type;
-    typedef std::size_t size_type;
-
-public:
-    memblock(void const *data, size_t size) : _M_buffer(size), _M_size(size) {
-        byte const *p = reinterpret_cast<byte const *>(data);
-        std::copy(p, p + size, &_M_buffer[0]);
-    }
-
-    template <typename T, size_t N>
-    memblock(T (&a)[N]) : _M_buffer(sizeof(a)), _M_size(sizeof(a)) {
-        byte const *p = reinterpret_cast<byte const *>(&a[0]);
-        std::copy(p, p + sizeof(a[0]) * N, &_M_buffer[0]);
-    }
-
-    void const *address() const { return &_M_buffer[0]; }
-    void *address() { return &_M_buffer[0]; }
-    size_type size() const { return _M_size; }
-
-    memblock &assign(void const *data, size_t size) {
-        _M_buffer.resize(size);
-        byte const *p = reinterpret_cast<byte const *>(data);
-        std::copy(p, p + size, &_M_buffer[0]);
-        _M_size = size;
-        return *this;
-    }
-
-    memblock &append(void const *data, size_t size) {
-        byte const *p = reinterpret_cast<byte const *>(data);
-        _M_buffer.insert(_M_buffer.end(), p, p + size);
-        _M_size += size;
-        return *this;
-    }
-
-private:
-    buffer_type _M_buffer;
-    size_type _M_size;
-};
 
 std::ostream &operator<<(std::ostream &os, memblock const &block) {
     using namespace org::sqg::supl;

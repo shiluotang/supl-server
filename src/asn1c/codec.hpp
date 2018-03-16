@@ -12,13 +12,6 @@
 
 SUPL_SERVER_BEGIN_DECLS
 
-class memblock {
-public:
-    memblock() { }
-    virtual ~memblock() {}
-private:
-};
-
 class xer_codec {
 public:
     typedef unsigned char byte;
