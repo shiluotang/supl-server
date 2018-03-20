@@ -6,10 +6,10 @@ AM_CXXFLAGS	=
 AM_LDFLAGS	= $(OPENSSL_LIBS)
 
 lib_LTLIBRARIES = \
-libsupl-server-misc.la \
 libasn1c-skeletons.la \
 libasn1c-module-supl2.la \
 libasn1c-module-rrlp14.la \
+libsupl-server-misc.la \
 libasn1c-codecxx.la \
 libsupl-server-server.la
 
@@ -1278,19 +1278,24 @@ libasn1c_module_rrlp14_la_SOURCES = \
 libasn1c_module_rrlp14_la_LIBADD = \
 libasn1c-skeletons.la
 
+libsupl_server_misc_la_SOURCES = \
+./src/misc/memblock.cpp
+
 libasn1c_codecxx_la_SOURCES = \
 ./src/asn1c/codec.cpp
 
 libasn1c_codecxx_la_LIBADD = \
 libasn1c-skeletons.la
 
-libsupl_server_la_SOURCES = \
+libsupl_server_server_la_SOURCES = \
 ./src/server/supl-server.cpp
 
-libsupl_server_la_LIBADD = \
+libsupl_server_server_la_LIBADD = \
 libasn1c-skeletons.la \
 libasn1c-module-supl2.la \
-libasn1c-module-rrlp14.la
+libasn1c-module-rrlp14.la \
+libsupl-server-misc.la \
+libasn1c-codecxx.la
 
 check_PROGRAMS = test1
 
@@ -1298,10 +1303,7 @@ test1_SOURCES = \
 ./tests/test1.cpp
 
 test1_LDADD = \
-libasn1c-skeletons.la \
-libasn1c-module-supl2.la \
-libasn1c-module-rrlp14.la \
-libsupl-server.la
+$(lib_LTLIBRARIES)
 
 TESTS = $(check_PROGRAMS)
 

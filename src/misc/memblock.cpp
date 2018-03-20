@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <ostream>
 
+#include "utils.hpp"
 #include "memblock.hpp"
 
 SUPL_SERVER_BEGIN_DECLS

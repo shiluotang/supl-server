@@ -23,7 +23,7 @@ extern "C" {
             return -1;
         buffer_type &storage = *reinterpret_cast<buffer_type*>(application_specific_key);
         byte const* p = reinterpret_cast<byte const*>(buffer);
-        storage.insert(storage.end(), p, p + n);
+        storage.insert(storage.end(), p, p + size);
         return 0;
     }
 }
@@ -53,6 +53,7 @@ bool xer_codec::encode0(::asn_TYPE_descriptor_t &td,
         void *struct_ptr,
         xer_codec::buffer_type &buffer,
         bool throwable) {
+    std::stringstream ss;
     asn_enc_rval_t rc = ::xer_encode(&td, struct_ptr, XER_F_BASIC, &xer_encode_buffer_callback, &ss);
     if (rc.encoded == -1) {
         if (throwable) {

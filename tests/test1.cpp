@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <stdexcept>
 #include <vector>
@@ -12,6 +13,8 @@
 #include "../src/asn1c/module/supl-2.0.3/SUPLSTART.h"
 
 #include <openssl/sha.h>
+
+SUPL_SERVER_BEGIN_DECLS
 
 std::ostream &operator<<(std::ostream &os, memblock const &block) {
     using namespace org::sqg::supl;
@@ -126,11 +129,25 @@ private:
 SHA_TEMPLATE_IMPL(256)
 SHA_TEMPLATE_IMPL(512)
 
+SUPL_SERVER_END_DECLS
+
 int main(int argc, char *argv[]) try {
     using namespace std;
     using namespace org::sqg::supl;
 
+    std::string const &filename = "./config.log";
+
+    char buffer[0xff];
+
     sha<256> algo;
+
+    std::ifstream infile(filename, ios::binary);
+    if (!infile)
+        throw std::runtime_error(filename + " can't be open for read!");
+    while (infile.read(&buffer[0], sizeof(buffer)))
+        algo.update(&buffer[0], infile.gcount());
+    if (infile.eof())
+        std::cout << "sha256 of " << filename << " is " << algo.complete() << std::endl;
 
     SUPLSTART_t start;
 
