@@ -1,0 +1,88 @@
+// -------------------------------
+// event driven
+// -------------------------------
+function onTimeout(action) {
+    notifyEngineTimeout(engine, pdu);
+}
+
+function onPDUArrived(pdu) {
+    var r = notifyEnginePDU(pdu);
+    r.getResponseData();
+    if (r.shouldWaitResponse()) {
+        scheduled = windows.setTimeout(timeoutProcess);
+        save(scheduled);
+    }
+}
+
+// -------------------------------
+// synchronized?
+// -------------------------------
+function main() {
+    Server server = new Server();
+    Thread acceptorTLS = server.acceptOn(7275, true, certificates);
+    Thread acceptorTCP = server.acceptOn(7276, false);
+    Thread acceptorMLP = server.acceptOn(9210, false);
+}
+
+function onMLPClientConnected(Socket s, Request request) {
+    var response = null;
+
+    if (server.isProxyMode()) {
+        sendSUPLINIT();
+        registerLocalSubscriber();
+        waitResponse();
+    } else {
+    }
+}
+
+function onTerminalConnected(Socket s) {
+    var request = null;
+    var response = null;
+    var engine = new Engine();
+    var DEFAULT_TIMER = 5; // seconds
+
+    if (TIMEOUT == receive(s, &request, DEFAULT_TIMER)) {
+        disconnect(s);
+        return;
+    }
+
+    do  {
+        response = engine.process(request);
+        send(s, response);
+        if (response.action() == DISCONNECT) {
+            disconnect(s);
+            break;
+        }
+        if (response.timer) {
+            if (TIMEOUT == receive(s, &request, response.timer)) {
+                response = engine.timeout();
+                send(s, response);
+                if (response.action() == DISCONNECT) {
+                    disconnect(s);
+                    break;
+                }
+            } else {
+                // TODO connection broken?
+            }
+        }
+    } while (true);
+}
+
+function onSessionStart(Session s) {
+    // MLP(SUPL INIT), SET (SUPL SET INIT)
+    session.setStarter(null);
+}
+
+function onSLPShutdown() {
+    notifyAcceptorsShutdown();
+    acceptorTLS.shutdown();
+    acceptorTCP.shutdown();
+    shutdownRunningSessions();
+}
+
+function mainLoop() {
+
+    Socket s = null;
+    Engine engine = new Engine();
+    select(s, NULL, NULL, timeout);
+}
