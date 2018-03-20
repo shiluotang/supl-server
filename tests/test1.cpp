@@ -147,7 +147,7 @@ int main(int argc, char *argv[]) try {
     while (infile.read(&buffer[0], sizeof(buffer)))
         algo.update(&buffer[0], infile.gcount());
     if (infile.eof())
-        std::cout << "sha256 of " << filename << " is " << algo.complete() << std::endl;
+        std::cout << "sha256 of " << filename << " is " << std::endl << algo.complete() << std::endl;
 
     SUPLSTART_t start;
 
