@@ -13,7 +13,7 @@ SUPL_SERVER_BEGIN_DECLS
 /**
  * The class to represent a block of memory.
  *
- * \@attention This is a value symmetric class, which means it is default by
+ * @attention This is a value symmetric class, which means it is default by
  * copy not by reference.
  */
 class memblock {

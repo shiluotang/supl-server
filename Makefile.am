@@ -1344,7 +1344,7 @@ RRLP_14_3_0_ASN1_FILES = \
 ./src/asn1c/module/rrlp-14.3.0/ASN.1/MAP-SS-DataTypes.asn1 \
 ./src/asn1c/module/rrlp-14.3.0/ASN.1/MAP-TS-Code.asn1 \
 ./src/asn1c/module/rrlp-14.3.0/ASN.1/RRLP-Components.asn1 \
-./src/asn1c/module/rrlp-14.3.0/ASN.1/RRLP-messages.asn1
+./src/asn1c/module/rrlp-14.3.0/ASN.1/RRLP-Messages.asn1
 
 BUILT_SOURCES = \
 $(libasn1c_module_supl2_la_SOURCES) \
