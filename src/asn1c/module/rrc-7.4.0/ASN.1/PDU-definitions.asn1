@@ -562,7 +562,7 @@ AssistanceDataDelivery ::= CHOICE {
 			laterNonCriticalExtensions		SEQUENCE {
 				-- Container for additional R99 extensions
 				assistanceDataDelivery-r3-add-ext		BIT STRING		OPTIONAL,
-				v4b0NonCriticalExtensions		SEQUENCE { 
+				v4b0NonCriticalExtensions		SEQUENCE {
 					assistanceDataDelivery-v4b0ext	AssistanceDataDelivery-v4b0ext-IEs,
 					v7xyNonCriticalExtension		SEQUENCE {
 						assistanceDataDelivery-v7xyext	AssistanceDataDelivery-v7xyext-IEs,
@@ -639,8 +639,8 @@ CellChangeOrderFromUTRAN-r3-IEs ::= SEQUENCE {
 		interRAT-TargetCellDescription	InterRAT-TargetCellDescription
 }
 
-CellChangeOrderFromUTRAN-v590ext-IEs ::= SEQUENCE {		
-		geran-SystemInfoType				CHOICE	{		
+CellChangeOrderFromUTRAN-v590ext-IEs ::= SEQUENCE {
+		geran-SystemInfoType				CHOICE	{
 			sI									GERAN-SystemInformation,
 			pSI									GERAN-SystemInformation
 		}		OPTIONAL
@@ -701,7 +701,7 @@ CellUpdate ::= SEQUENCE {
 			-- Container for additional R99 extensions
 			cellUpdate-r3-add-ext			BIT STRING	OPTIONAL,
 			v590NonCriticalExtensions	SEQUENCE {
-				cellUpdate-v590ext	CellUpdate-v590ext, 
+				cellUpdate-v590ext	CellUpdate-v590ext,
 				v690NonCriticalExtensions		SEQUENCE {
 					cellUpdate-v690ext				CellUpdate-v690ext-IEs,
 					v6b0NonCriticalExtensions		SEQUENCE {
@@ -1196,7 +1196,7 @@ CellUpdateConfirm-CCCH ::= CHOICE {
 							nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 						}	OPTIONAL
 					}	OPTIONAL
-				},		
+				},
 				criticalExtensions				CHOICE {
 					r6								SEQUENCE {
 						cellUpdateConfirm-r6			CellUpdateConfirm-r6-IEs,
@@ -1745,7 +1745,7 @@ HandoverFromUTRANCommand-GSM ::= CHOICE {
 	r3								SEQUENCE {
 		handoverFromUTRANCommand-GSM-r3
 										HandoverFromUTRANCommand-GSM-r3-IEs,
-		-- UTRAN should not include the IE laterNonCriticalExtensions when it sets the IE 
+		-- UTRAN should not include the IE laterNonCriticalExtensions when it sets the IE
 		-- gsm-message included in handoverFromUTRANCommand-GSM-r3 to single-GSM-Message. The UE
 		-- behaviour upon receiving a message with this combination of IE values is unspecified.
 		laterNonCriticalExtensions		SEQUENCE {
@@ -1784,9 +1784,9 @@ HandoverFromUTRANCommand-GSM-r3-IEs ::= SEQUENCE {
 		gsm-message						CHOICE {
 			-- In the single-GSM-Message case the following rules apply:
 			-- 1> the GSM message directly follows the basic production; the final padding that
-			--    results when PER encoding the abstract syntax value is removed prior to appending 
+			--    results when PER encoding the abstract syntax value is removed prior to appending
 			--    the GSM message.
-			-- 2> the RRC message excluding the GSM part, does not contain a length determinant; 
+			-- 2> the RRC message excluding the GSM part, does not contain a length determinant;
 			--    there is no explicit parameter indicating the size of the included GSM message.
 			-- 3> depending on need, final padding (all “0”s) is added to ensure the final result
 			--    comprises a full number of octets
@@ -1808,9 +1808,9 @@ HandoverFromUTRANCommand-GSM-r6-IEs ::= SEQUENCE {
 		gsm-message						CHOICE {
 			-- In the single-GSM-Message case the following rules apply:
 			-- 1> the GSM message directly follows the basic production; the final padding that
-			--    results when PER encoding the abstract syntax value is removed prior to appending 
+			--    results when PER encoding the abstract syntax value is removed prior to appending
 			--    the GSM message.
-			-- 2> the RRC message excluding the GSM part, does not contain a length determinant; 
+			-- 2> the RRC message excluding the GSM part, does not contain a length determinant;
 			--    there is no explicit parameter indicating the size of the included GSM message.
 			-- 3> depending on need, final padding (all “0”s) is added to ensure the final result
 			--    comprises a full number of octets
@@ -1819,14 +1819,14 @@ HandoverFromUTRANCommand-GSM-r6-IEs ::= SEQUENCE {
 				gsm-Messages					GSM-MessageList
 			}
 		},
-		geran-SystemInfoType				CHOICE	{		
+		geran-SystemInfoType				CHOICE	{
 			sI									GERAN-SystemInformation,
 			pSI									GERAN-SystemInformation
 		}		OPTIONAL
 }
 
 HandoverFromUTRANCommand-GSM-v690ext-IEs ::= SEQUENCE {
-		geran-SystemInfoType				CHOICE	{		
+		geran-SystemInfoType				CHOICE	{
 			sI									GERAN-SystemInformation,
 			pSI									GERAN-SystemInformation
 		}		OPTIONAL
@@ -1839,7 +1839,7 @@ HandoverFromUTRANCommand-GERANIu ::= SEQUENCE {
 			handoverFromUTRANCommand-GERANIu-r5
 											HandoverFromUTRANCommand-GERANIu-r5-IEs,
 			-- UTRAN should not include the IE nonCriticalExtensions when it sets
-			-- the IE geranIu-message included in handoverFromUTRANCommand-GERANIu-r5 to 
+			-- the IE geranIu-message included in handoverFromUTRANCommand-GERANIu-r5 to
 			-- single-GERANIu-Message
 			-- The UE behaviour upon receiving a message including this combination of IE values is
 			-- not specified
@@ -1860,9 +1860,9 @@ HandoverFromUTRANCommand-GERANIu-r5-IEs ::= SEQUENCE {
 		geranIu-Message						CHOICE {
 			-- In the single-GERANIu-Message case the following rules apply:
 			-- 1> the GERAN Iu message directly follows the basic production; the final padding that
-			--    results when PER encoding the abstract syntax value is removed prior to appending 
+			--    results when PER encoding the abstract syntax value is removed prior to appending
 			--    the GERAN Iu message.
-			-- 2> the RRC message excluding the GERAN Iu part does not contain a length determinant; 
+			-- 2> the RRC message excluding the GERAN Iu part does not contain a length determinant;
 --    there is no explicit parameter indicating the size of the included GERAN Iu
 --    message.
 			-- 3> depending on need, final padding (all “0”s) is added to ensure the final result
@@ -1879,8 +1879,8 @@ HandoverFromUTRANCommand-CDMA2000 ::= CHOICE {
 		handoverFromUTRANCommand-CDMA2000-r3
 										HandoverFromUTRANCommand-CDMA2000-r3-IEs,
 		laterNonCriticalExtensions			SEQUENCE {
-			-- Container for additional R99 extensions 
-			handoverFromUTRANCommand-CDMA2000-r3-add-ext		
+			-- Container for additional R99 extensions
+			handoverFromUTRANCommand-CDMA2000-r3-add-ext
 												BIT STRING		OPTIONAL,
 			nonCriticalExtensions				SEQUENCE {}		OPTIONAL
 		}	OPTIONAL
@@ -1984,7 +1984,7 @@ InterRATHandoverInfo ::= SEQUENCE {
 										interRATHandoverInfo-v690ext
 																InterRATHandoverInfo-v690ext-IEs,
 										v6b0NonCriticalExtensions		SEQUENCE {
-											interRATHandoverInfo-v6b0ext		
+											interRATHandoverInfo-v6b0ext
 																InterRATHandoverInfo-v6b0ext-IEs,
 											nonCriticalExtensions			SEQUENCE {}	OPTIONAL
 										}	OPTIONAL
@@ -2083,9 +2083,9 @@ MeasurementControl ::= CHOICE {
 					-- Container for additional R99 extensions
 					measurementControl-r3-add-ext		BIT STRING	OPTIONAL,
 					v4b0NonCriticalExtensions			SEQUENCE{
-						-- The content of the v4b0 non-critical extension has been removed. If sent 
-						-- to a UE of AS release 4, the UE behaviour is unspecified. A UE of AS 
-						-- release 5 onward shall comply with the v4b0 and later extensions in this 
+						-- The content of the v4b0 non-critical extension has been removed. If sent
+						-- to a UE of AS release 4, the UE behaviour is unspecified. A UE of AS
+						-- release 5 onward shall comply with the v4b0 and later extensions in this
 						-- branch of the message.
 						v590NonCriticalExtensions		SEQUENCE {
 							measurementControl-v590ext		MeasurementControl-v590ext-IEs,
@@ -2124,7 +2124,7 @@ MeasurementControl ::= CHOICE {
 			},
 			later-than-r4					SEQUENCE {
 				-- Most significant part of "RRC transaction identifier" (MSP),
-				-- "RRC transaction identifier" = rrc-TransactionIdentifier-MSP * 4 + 
+				-- "RRC transaction identifier" = rrc-TransactionIdentifier-MSP * 4 +
 				-- rrc-TransactionIdentifier
 				rrc-TransactionIdentifier-MSP		RRC-TransactionIdentifier,
 				criticalExtensions				CHOICE {
@@ -2187,7 +2187,7 @@ MeasurementControl-v590ext-IEs ::= SEQUENCE {
 	intraFreqReportingCriteria-1b-r5		IntraFreqReportingCriteria-1b-r5	OPTIONAL,
 	intraFreqEvent-1d-r5					IntraFreqEvent-1d-r5				OPTIONAL,
 	-- most significant part of "RRC transaction identifier" (MSP),
-	-- "RRC transaction identifier" = rrc-TransactionIdentifier-MSP-v590ext * 4 + 
+	-- "RRC transaction identifier" = rrc-TransactionIdentifier-MSP-v590ext * 4 +
 	-- rrc-TransactionIdentifier
 	rrc-TransactionIdentifier-MSP-v590ext	RRC-TransactionIdentifier
 }
@@ -2243,9 +2243,9 @@ MeasurementControlFailure ::= SEQUENCE {
 
 MeasurementControlFailure-v590ext-IEs ::= SEQUENCE {
 	-- most significant part of "RRC transaction identifier" (MSP),
-	-- "RRC transaction identifier" = rrc-TransactionIdentifier-MSP-v590ext * 4 + 
+	-- "RRC transaction identifier" = rrc-TransactionIdentifier-MSP-v590ext * 4 +
 	-- rrc-TransactionIdentifier
-	-- If the rrc-TransactionIdentifier-MSP-v590ext was not received in the MEASUREMENT CONTROL 
+	-- If the rrc-TransactionIdentifier-MSP-v590ext was not received in the MEASUREMENT CONTROL
 	-- message, then the rrc-TransactionIdentifier-MSP-v590ext shall be set to zero
 	rrc-TransactionIdentifier-MSP-v590ext	RRC-TransactionIdentifier
 }
@@ -2391,7 +2391,7 @@ PhysicalChannelReconfiguration ::= CHOICE {
 						physicalChannelReconfiguration-v590ext
 													PhysicalChannelReconfiguration-v590ext-IEs,
 						v690NonCriticalExtensions		SEQUENCE {
-							physicalChannelReconfiguration-v690ext		
+							physicalChannelReconfiguration-v690ext
 														PhysicalChannelReconfiguration-v690ext-IEs,
 							nonCriticalExtensions					SEQUENCE {} OPTIONAL
 						}	OPTIONAL
@@ -2413,7 +2413,7 @@ PhysicalChannelReconfiguration ::= CHOICE {
 						physicalChannelReconfiguration-v590ext
 												PhysicalChannelReconfiguration-v590ext-IEs,
 						v690NonCriticalExtensions		SEQUENCE {
-							physicalChannelReconfiguration-v690ext		
+							physicalChannelReconfiguration-v690ext
 														PhysicalChannelReconfiguration-v690ext-IEs,
 							nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 						}	OPTIONAL
@@ -2427,7 +2427,7 @@ PhysicalChannelReconfiguration ::= CHOICE {
 					-- Container for adding non critical extensions after freezing REL-6
 					physicalChannelReconfiguration-r5-add-ext		BIT STRING		OPTIONAL,
 					v690NonCriticalExtensions		SEQUENCE {
-						physicalChannelReconfiguration-v690ext		
+						physicalChannelReconfiguration-v690ext
 														PhysicalChannelReconfiguration-v690ext-IEs,
 						nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 					}	OPTIONAL
@@ -2798,10 +2798,10 @@ PhysicalSharedChannelAllocation-r3-IEs ::= SEQUENCE {
 		pusch-CapacityAllocationInfo	PUSCH-CapacityAllocationInfo		OPTIONAL,
 		pdsch-CapacityAllocationInfo	PDSCH-CapacityAllocationInfo		OPTIONAL,
 		-- TABULAR: If confirmRequest is not present, the default value "No Confirm"
-		-- shall be used as specified in 10.2.25.		
+		-- shall be used as specified in 10.2.25.
 		confirmRequest					ENUMERATED {
 											confirmPDSCH, confirmPUSCH }	OPTIONAL,
-		trafficVolumeReportRequest		INTEGER (0..255)					OPTIONAL,	
+		trafficVolumeReportRequest		INTEGER (0..255)					OPTIONAL,
 		iscpTimeslotList					TimeslotList						OPTIONAL,
 		requestPCCPCHRSCP					BOOLEAN
 }
@@ -2813,7 +2813,7 @@ PhysicalSharedChannelAllocation-r4-IEs ::= SEQUENCE {
 		pusch-CapacityAllocationInfo	PUSCH-CapacityAllocationInfo-r4		OPTIONAL,
 		pdsch-CapacityAllocationInfo	PDSCH-CapacityAllocationInfo-r4		OPTIONAL,
 		-- TABULAR: If confirmRequest is not present, the default value "No Confirm"
-		-- shall be used as specified in 10.2.25.		
+		-- shall be used as specified in 10.2.25.
 		confirmRequest					ENUMERATED {
 											confirmPDSCH, confirmPUSCH }	OPTIONAL,
 		trafficVolumeReportRequest		INTEGER (0..255)					OPTIONAL,
@@ -2879,10 +2879,10 @@ RadioBearerReconfiguration ::= CHOICE {
 				-- Container for additional R99 extensions
 				radioBearerReconfiguration-r3-add-ext		BIT STRING		OPTIONAL,
 				v4b0NonCriticalExtensions			SEQUENCE {
-					radioBearerReconfiguration-v4b0ext	
+					radioBearerReconfiguration-v4b0ext
 													RadioBearerReconfiguration-v4b0ext-IEs,
 					v590NonCriticalExtensions			SEQUENCE {
-						radioBearerReconfiguration-v590ext	
+						radioBearerReconfiguration-v590ext
 														RadioBearerReconfiguration-v590ext-IEs,
 						v5d0NonCriticalExtenstions			SEQUENCE {
 							radioBearerReconfiguration-v5d0ext
@@ -2907,7 +2907,7 @@ RadioBearerReconfiguration ::= CHOICE {
 					-- Container for adding non critical extensions after freezing REL-5
 					radioBearerReconfiguration-r4-add-ext		BIT STRING		OPTIONAL,
 					v590NonCriticalExtensions			SEQUENCE {
-						radioBearerReconfiguration-v590ext	
+						radioBearerReconfiguration-v590ext
 													RadioBearerReconfiguration-v590ext-IEs,
 						v5d0NonCriticalExtenstions			SEQUENCE {
 							radioBearerReconfiguration-v5d0ext
@@ -3103,7 +3103,7 @@ RadioBearerReconfiguration-r5-IEs ::= SEQUENCE {
 		activationTime					ActivationTime						OPTIONAL,
 		new-U-RNTI						U-RNTI								OPTIONAL,
 		new-C-RNTI						C-RNTI								OPTIONAL,
-		-- The IE “new-DSCH-RNTI” should not be included in FDD mode, and if received 
+		-- The IE “new-DSCH-RNTI” should not be included in FDD mode, and if received
 		-- the UE behaviour is unspecified
 		new-DSCH-RNTI					DSCH-RNTI							OPTIONAL,
 		new-H-RNTI						H-RNTI								OPTIONAL,
@@ -4305,7 +4305,7 @@ RRCConnectionReject ::= CHOICE {
 			rrcConnectionReject-r3-add-ext		BIT STRING		OPTIONAL,
 			v690NonCriticalExtensions			SEQUENCE {
 				rrcConnectionReject-v690ext		RRCConnectionReject-v690ext-IEs,
-				nonCriticalExtensions			SEQUENCE {}		OPTIONAL 
+				nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 			}	OPTIONAL
 		}	OPTIONAL
 	},
@@ -4342,9 +4342,9 @@ RRCConnectionRelease ::= CHOICE {
 		laterNonCriticalExtensions		SEQUENCE {
 			-- Container for additional R99 extensions
 			rrcConnectionRelease-r3-add-ext		BIT STRING		OPTIONAL,
-			v690NonCriticalExtensions			SEQUENCE { 
+			v690NonCriticalExtensions			SEQUENCE {
 				rrcConnectionRelease-v690ext	RRCConnectionRelease-v690ext-IEs,
-				nonCriticalExtensions			SEQUENCE {}		OPTIONAL 
+				nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 			}	OPTIONAL
 		}	OPTIONAL
 	},
@@ -4409,7 +4409,7 @@ RRCConnectionRelease-CCCH ::= CHOICE {
 		laterNonCriticalExtensions		SEQUENCE {
 			-- Container for additional R99 extensions
 			rrcConnectionRelease-CCCH-r3-add-ext		BIT STRING		OPTIONAL,
-			v690NonCriticalExtensions		SEQUENCE { 
+			v690NonCriticalExtensions		SEQUENCE {
 				rrcConnectionRelease-v690ext	RRCConnectionRelease-CCCH-v690ext-IEs,
 				nonCriticalExtensions			SEQUENCE {}	OPTIONAL
 			}	OPTIONAL
@@ -4424,16 +4424,16 @@ RRCConnectionRelease-CCCH ::= CHOICE {
 				v4d0NonCriticalExtensions			SEQUENCE {
 					-- Container for adding non critical extensions after freezing REL-5
 					rrcConnectionRelease-CCCH-r4-add-ext		BIT STRING		OPTIONAL,
-					v690NonCriticalExtensions		SEQUENCE { 
+					v690NonCriticalExtensions		SEQUENCE {
 						rrcConnectionRelease-v690ext	RRCConnectionRelease-CCCH-v690ext-IEs,
 						nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 					}	OPTIONAL
 				}		OPTIONAL
 			},
 			criticalExtensions				SEQUENCE {
-				-- TABULAR: CHOICE IdentityType (U-RNTI, GroupIdentity) is replaced with the 
+				-- TABULAR: CHOICE IdentityType (U-RNTI, GroupIdentity) is replaced with the
 				-- optional element groupIdentity, since the U-RNTI is mandatory in ASN.1.
-				-- In case CHOICE IdentityType is equal to GroupIdentity the value of the U-RNTI 
+				-- In case CHOICE IdentityType is equal to GroupIdentity the value of the U-RNTI
 				-- shall be ignored by a UE complying with this version of the message.
 				groupIdentity		SEQUENCE ( SIZE (1 .. maxURNTI-Group) ) OF
 											GroupReleaseInformation		OPTIONAL,
@@ -4442,7 +4442,7 @@ RRCConnectionRelease-CCCH ::= CHOICE {
 						rrcConnectionRelease-CCCH-r5	RRCConnectionRelease-CCCH-r5-IEs,
 						-- Container for adding non critical extensions after freezing REL-6
 						rrcConnectionRelease-CCCH-r5-add-ext		BIT STRING		OPTIONAL,
-						v690NonCriticalExtensions		SEQUENCE { 
+						v690NonCriticalExtensions		SEQUENCE {
 							rrcConnectionRelease-v690ext	RRCConnectionRelease-CCCH-v690ext-IEs,
 							nonCriticalExtensions			SEQUENCE {}	OPTIONAL
 						}	OPTIONAL
@@ -4579,9 +4579,9 @@ RRCConnectionSetup ::= CHOICE {
 		laterNonCriticalExtensions		SEQUENCE {
 			-- Container for additional R99 extensions
 			rrcConnectionSetup-r3-add-ext	BIT STRING		OPTIONAL,
-			v4b0NonCriticalExtensions		SEQUENCE { 
+			v4b0NonCriticalExtensions		SEQUENCE {
 				rrcConnectionSetup-v4b0ext		RRCConnectionSetup-v4b0ext-IEs,
-				v590NonCriticalExtensions		SEQUENCE { 
+				v590NonCriticalExtensions		SEQUENCE {
 					rrcConnectionSetup-v590ext		RRCConnectionSetup-v590ext-IEs,
 					v690NonCriticalExtensions		SEQUENCE {
 						rrcConnectionSetup-v690ext		RRCConnectionSetup-v690ext-IEs,
@@ -4603,7 +4603,7 @@ RRCConnectionSetup ::= CHOICE {
 				v4d0NonCriticalExtensions			SEQUENCE {
 					-- Container for adding non critical extensions after freezing REL-5
 					rrcConnectionSetup-r4-add-ext	BIT STRING		OPTIONAL,
-					v590NonCriticalExtensions		SEQUENCE { 
+					v590NonCriticalExtensions		SEQUENCE {
 						rrcConnectionSetup-v590ext		RRCConnectionSetup-v590ext-IEs,
 						v690NonCriticalExtensions		SEQUENCE {
 							rrcConnectionSetup-v690ext		RRCConnectionSetup-v690ext-IEs,
@@ -5386,13 +5386,13 @@ TransportChannelReconfiguration ::= CHOICE {
 				-- Container for additional R99 extensions
 				transportChannelReconfiguration-r3-add-ext		BIT STRING		OPTIONAL,
 				v4b0NonCriticalExtensions		SEQUENCE {
-					transportChannelReconfiguration-v4b0ext	
+					transportChannelReconfiguration-v4b0ext
 													TransportChannelReconfiguration-v4b0ext-IEs,
 					v590NonCriticalExtensions		SEQUENCE {
-						transportChannelReconfiguration-v590ext	
+						transportChannelReconfiguration-v590ext
 														TransportChannelReconfiguration-v590ext-IEs,
 						v690NonCriticalExtensions		SEQUENCE {
-							transportChannelReconfiguration-v690ext	
+							transportChannelReconfiguration-v690ext
 														TransportChannelReconfiguration-v690ext-IEs,
 							nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 						}		OPTIONAL
@@ -5411,10 +5411,10 @@ TransportChannelReconfiguration ::= CHOICE {
 					-- Container for adding non critical extensions after freezing REL-5
 					transportChannelReconfiguration-r4-add-ext		BIT STRING		OPTIONAL,
 					v590NonCriticalExtensions		SEQUENCE {
-						transportChannelReconfiguration-v590ext	
+						transportChannelReconfiguration-v590ext
 													TransportChannelReconfiguration-v590ext-IEs,
 						v690NonCriticalExtensions		SEQUENCE {
-							transportChannelReconfiguration-v690ext	
+							transportChannelReconfiguration-v690ext
 														TransportChannelReconfiguration-v690ext-IEs,
 							nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 						}	OPTIONAL
@@ -5428,7 +5428,7 @@ TransportChannelReconfiguration ::= CHOICE {
 					-- Container for adding non critical extensions after freezing REL-6
 					transportChannelReconfiguration-r5-add-ext		BIT STRING		OPTIONAL,
 					v690NonCriticalExtensions		SEQUENCE {
-						transportChannelReconfiguration-v690ext	
+						transportChannelReconfiguration-v690ext
 														TransportChannelReconfiguration-v690ext-IEs,
 						nonCriticalExtensions			SEQUENCE {}		OPTIONAL
 					}	OPTIONAL
@@ -5804,7 +5804,7 @@ TransportFormatCombinationControl ::= SEQUENCE {
 			fdd									NULL,
 			tdd									SEQUENCE {
 				tfcs-ID								TFCS-Identity	OPTIONAL
-			}	
+			}
 		},
 		dpch-TFCS-InUplink					TFC-Subset,
 		activationTimeForTFCSubset			ActivationTime						OPTIONAL,
@@ -5845,7 +5845,7 @@ UECapabilityEnquiry ::= CHOICE {
 		laterNonCriticalExtensions		SEQUENCE {
 			-- Container for additional R99 extensions
 			ueCapabilityEnquiry-r3-add-ext		BIT STRING		OPTIONAL,
-			v4b0NonCriticalExtensions		SEQUENCE { 
+			v4b0NonCriticalExtensions		SEQUENCE {
 				ueCapabilityEnquiry-v4b0ext		UECapabilityEnquiry-v4b0ext-IEs,
 				v590NonCriticalExtensions		SEQUENCE {
 					ueCapabilityEnquiry-v590ext		UECapabilityEnquiry-v590ext-IEs,
@@ -6107,7 +6107,7 @@ UplinkPhysicalChannelControl ::= CHOICE {
 
 UplinkPhysicalChannelControl-r3-IEs ::= SEQUENCE {
 	-- User equipment IEs
-		rrc-TransactionIdentifier		RRC-TransactionIdentifier, 
+		rrc-TransactionIdentifier		RRC-TransactionIdentifier,
 	-- Physical channel IEs
 		ccTrCH-PowerControlInfo			CCTrCH-PowerControlInfo				OPTIONAL,
 		timingAdvance					UL-TimingAdvanceControl				OPTIONAL,
@@ -6261,7 +6261,7 @@ URAUpdateConfirm ::= CHOICE {
 
 URAUpdateConfirm-r3-IEs ::= SEQUENCE {
 	-- User equipment IEs
-		rrc-TransactionIdentifier		RRC-TransactionIdentifier, 
+		rrc-TransactionIdentifier		RRC-TransactionIdentifier,
 		integrityProtectionModeInfo		IntegrityProtectionModeInfo			OPTIONAL,
 		cipheringModeInfo				CipheringModeInfo					OPTIONAL,
 		new-U-RNTI						U-RNTI								OPTIONAL,
@@ -6392,7 +6392,7 @@ UTRANMobilityInformation ::= CHOICE {
 
 UTRANMobilityInformation-r3-IEs ::= SEQUENCE {
 	-- User equipment IEs
-		rrc-TransactionIdentifier		RRC-TransactionIdentifier, 
+		rrc-TransactionIdentifier		RRC-TransactionIdentifier,
 		integrityProtectionModeInfo		IntegrityProtectionModeInfo			OPTIONAL,
 		cipheringModeInfo				CipheringModeInfo					OPTIONAL,
 		new-U-RNTI						U-RNTI								OPTIONAL,
@@ -6456,7 +6456,7 @@ UTRANMobilityInformation-r7-IEs ::= SEQUENCE {
 
 UTRANMobilityInformationConfirm ::= SEQUENCE {
 	-- User equipment IEs
-		rrc-TransactionIdentifier		RRC-TransactionIdentifier, 
+		rrc-TransactionIdentifier		RRC-TransactionIdentifier,
 		ul-IntegProtActivationInfo		IntegrityProtActivationInfo			OPTIONAL,
 	-- Radio bearer IEs
 		count-C-ActivationTime			ActivationTime						OPTIONAL,
@@ -6487,7 +6487,7 @@ UTRANMobilityInformationConfirm-v7xyext-IEs ::= SEQUENCE {
 
 UTRANMobilityInformationFailure ::= SEQUENCE {
 	-- UE information elements
-		rrc-TransactionIdentifier		RRC-TransactionIdentifier, 
+		rrc-TransactionIdentifier		RRC-TransactionIdentifier,
 		failureCause					FailureCauseWithProtErr,
 		laterNonCriticalExtensions			SEQUENCE {
 			-- Container for additional R99 extensions

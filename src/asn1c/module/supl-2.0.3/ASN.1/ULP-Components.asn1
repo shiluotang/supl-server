@@ -172,7 +172,7 @@ CPICH-Ec-N0 ::= INTEGER(0..63)
 -- the encoding of cpich-RSCP is (as per [3GPP RRC] V5.11.0)
 -- cpich-RSCP = 123 CPICH RSCP <-120 dBm
 -- cpich-RSCP = 124 -120 ≤ CPICH RSCP < -119 dBm
--- cpich-RSCP = 125 -119 ≤ CPICH RSCP < -118 dBm 
+-- cpich-RSCP = 125 -119 ≤ CPICH RSCP < -118 dBm
 -- cpich-RSCP = 126 -118 ≤ CPICH RSCP < -117 dBm
 -- cpich-RSCP = 127 -117 ≤ CPICH RSCP < -116 dBm
 -- cpich-RSCP = 0 -116 ≤ CPICH RSCP < -115 dBm

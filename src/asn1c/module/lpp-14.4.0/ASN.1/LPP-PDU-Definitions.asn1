@@ -84,7 +84,7 @@ RequestCapabilities-r9-IEs ::= SEQUENCE {
         tbs-RequestCapabilities-r13     TBS-RequestCapabilities-r13         OPTIONAL,   -- Need ON
         wlan-RequestCapabilities-r13    WLAN-RequestCapabilities-r13        OPTIONAL,   -- Need ON
         bt-RequestCapabilities-r13      BT-RequestCapabilities-r13          OPTIONAL    -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -111,7 +111,7 @@ ProvideCapabilities-r9-IEs ::= SEQUENCE {
         tbs-ProvideCapabilities-r13     TBS-ProvideCapabilities-r13         OPTIONAL,
         wlan-ProvideCapabilities-r13    WLAN-ProvideCapabilities-r13        OPTIONAL,
         bt-ProvideCapabilities-r13      BT-ProvideCapabilities-r13          OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -137,7 +137,7 @@ RequestAssistanceData-r9-IEs ::= SEQUENCE {
                                         Sensor-RequestAssistanceData-r14    OPTIONAL,
         tbs-RequestAssistanceData-r14   TBS-RequestAssistanceData-r14       OPTIONAL,
         wlan-RequestAssistanceData-r14  WLAN-RequestAssistanceData-r14      OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -159,11 +159,11 @@ ProvideAssistanceData-r9-IEs ::= SEQUENCE {
     otdoa-ProvideAssistanceData         OTDOA-ProvideAssistanceData         OPTIONAL,   -- Need ON
     epdu-Provide-Assistance-Data        EPDU-Sequence                       OPTIONAL,   -- Need ON
     ...,
-    
+
     sensor-ProvideAssistanceData-r14    Sensor-ProvideAssistanceData-r14    OPTIONAL,   -- Need ON
     tbs-ProvideAssistanceData-r14       TBS-ProvideAssistanceData-r14       OPTIONAL,   -- Need ON
     wlan-ProvideAssistanceData-r14      WLAN-ProvideAssistanceData-r14      OPTIONAL    -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -187,14 +187,14 @@ RequestLocationInformation-r9-IEs ::= SEQUENCE {
     ecid-RequestLocationInformation     ECID-RequestLocationInformation     OPTIONAL,   -- Need ON
     epdu-RequestLocationInformation     EPDU-Sequence                       OPTIONAL,   -- Need ON
     ...,
-    
+
     sensor-RequestLocationInformation-r13
                                         Sensor-RequestLocationInformation-r13
                                                                             OPTIONAL,   -- Need ON
     tbs-RequestLocationInformation-r13  TBS-RequestLocationInformation-r13  OPTIONAL,   -- Need ON
     wlan-RequestLocationInformation-r13 WLAN-RequestLocationInformation-r13 OPTIONAL,   -- Need ON
     bt-RequestLocationInformation-r13   BT-RequestLocationInformation-r13   OPTIONAL    -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -218,14 +218,14 @@ ProvideLocationInformation-r9-IEs ::= SEQUENCE {
     ecid-ProvideLocationInformation     ECID-ProvideLocationInformation     OPTIONAL,
     epdu-ProvideLocationInformation     EPDU-Sequence                       OPTIONAL,
     ...,
-    
+
     sensor-ProvideLocationInformation-r13
                                         Sensor-ProvideLocationInformation-r13
                                                                             OPTIONAL,
     tbs-ProvideLocationInformation-r13  TBS-ProvideLocationInformation-r13  OPTIONAL,
     wlan-ProvideLocationInformation-r13 WLAN-ProvideLocationInformation-r13 OPTIONAL,
     bt-ProvideLocationInformation-r13   BT-ProvideLocationInformation-r13   OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -570,9 +570,9 @@ CommonIEsRequestLocationInformation ::= SEQUENCE {
     locationCoordinateTypes     LocationCoordinateTypes     OPTIONAL,   -- Need ON
     velocityTypes               VelocityTypes               OPTIONAL,   -- Need ON
     ...,
-    
+
         messageSizeLimitNB-r14  MessageSizeLimitNB-r14      OPTIONAL    -- Need ON
-    
+
 }
 
 LocationInformationType ::= ENUMERATED {
@@ -616,7 +616,7 @@ QoS ::= SEQUENCE {
     velocityRequest             BOOLEAN,
     ...,
       responseTimeNB-r14      ResponseTimeNB-r14      OPTIONAL    -- Need ON
-    
+
 }
 
 HorizontalAccuracy ::= SEQUENCE {
@@ -635,7 +635,7 @@ ResponseTime ::= SEQUENCE {
     time                                INTEGER (1..128),
     ...,
       responseTimeEarlyFix-r12        INTEGER (1..128)        OPTIONAL        -- Need ON
-    
+
 }
 
 ResponseTimeNB-r14 ::= SEQUENCE {
@@ -668,7 +668,7 @@ CommonIEsProvideLocationInformation ::= SEQUENCE {
     ,
       locationSource-r13      LocationSource-r13      OPTIONAL,
         locationTimestamp-r13   UTCTime                 OPTIONAL
-    
+
 }
 
 LocationCoordinates ::= CHOICE {
@@ -751,10 +751,10 @@ OTDOA-ProvideAssistanceData ::= SEQUENCE {
     otdoa-NeighbourCellInfo         OTDOA-NeighbourCellInfoList         OPTIONAL,   -- Need ON
     otdoa-Error                     OTDOA-Error                         OPTIONAL,   -- Need ON
     ...,
-    
+
       otdoa-ReferenceCellInfoNB-r14 OTDOA-ReferenceCellInfoNB-r14       OPTIONAL,   -- Need ON
       otdoa-NeighbourCellInfoNB-r14 OTDOA-NeighbourCellInfoListNB-r14   OPTIONAL    -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -779,7 +779,7 @@ OTDOA-ReferenceCellInfo ::= SEQUENCE {
                                                             OPTIONAL,       -- Cond NotSameAsServ3
         addPRSconfigRef-r14     SEQUENCE (SIZE (1..maxAddPRSconfig-r14)) OF PRS-Info
                                                             OPTIONAL        -- Need ON
-    
+
 }
 
 maxAddPRSconfig-r14             INTEGER ::= 2
@@ -814,7 +814,7 @@ PRS-Info ::= SEQUENCE {
             nb4-r14             SEQUENCE (SIZE (3))
                                         OF INTEGER (0.. maxAvailNarrowBands-Minus1-r14)
     }                                                       OPTIONAL                -- Cond PRS-FH
-    
+
 }
 
 maxAvailNarrowBands-Minus1-r14      INTEGER ::= 15  -- Maximum number of narrowbands minus 1
@@ -851,7 +851,7 @@ OTDOA-NeighbourCellInfoElement ::= SEQUENCE {
         addPRSconfigNeighbour-r14   SEQUENCE (SIZE (1..maxAddPRSconfig-r14)) OF
                                         Add-PRSconfigNeighbourElement-r14
                                                             OPTIONAL        -- Need ON
-    
+
 }
 
 Add-PRSconfigNeighbourElement-r14 ::= SEQUENCE {
@@ -954,9 +954,9 @@ maxCells-r14    INTEGER ::= 72
 OTDOA-RequestAssistanceData ::= SEQUENCE {
     physCellId      INTEGER (0..503),
     ...,
-    
+
       adType-r14    BIT STRING { prs (0), nprs (1) } (SIZE (1..8))      OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -966,9 +966,9 @@ OTDOA-ProvideLocationInformation ::= SEQUENCE {
     otdoaSignalMeasurementInformation   OTDOA-SignalMeasurementInformation  OPTIONAL,
     otdoa-Error                         OTDOA-Error                         OPTIONAL,
     ...,
-    
+
         otdoaSignalMeasurementInformation-NB-r14    OTDOA-SignalMeasurementInformation-NB-r14   OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -992,7 +992,7 @@ OTDOA-SignalMeasurementInformation ::= SEQUENCE {
         carrierFreqOffsetNB-Ref-r14
                             CarrierFreqOffsetNB-r14 OPTIONAL,       -- Cond NB-IoT
         hyperSFN-r14        BIT STRING (SIZE (10))  OPTIONAL        -- Cond H-SFN
-    
+
 }
 
 NeighbourMeasurementList ::= SEQUENCE (SIZE(1..24)) OF NeighbourMeasurementElement
@@ -1014,7 +1014,7 @@ NeighbourMeasurementElement ::= SEQUENCE {
         nprsIdNeighbour-r14 INTEGER (0..4095)       OPTIONAL,       -- Cond ProvidedByServer2
         carrierFreqOffsetNB-Neighbour-r14
                             CarrierFreqOffsetNB-r14 OPTIONAL        -- Cond NB-IoT
-    
+
 }
 
 AdditionalPathList-r14 ::= SEQUENCE (SIZE(1..maxPaths-r14)) OF AdditionalPath-r14
@@ -1084,10 +1084,10 @@ AdditionalPath-r14 ::= SEQUENCE {
 OTDOA-RequestLocationInformation ::= SEQUENCE {
     assistanceAvailability      BOOLEAN,
     ...,
-    
+
         multipathRSTD-r14       ENUMERATED { requested }    OPTIONAL,       -- Need ON
         maxNoOfRSTDmeas-r14     INTEGER (1..32)             OPTIONAL        -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -1213,11 +1213,11 @@ GNSS-GenericAssistDataElement ::= SEQUENCE {
     gnss-UTC-Model                  GNSS-UTC-Model                  OPTIONAL,   -- Need ON
     gnss-AuxiliaryInformation       GNSS-AuxiliaryInformation       OPTIONAL,   -- Need ON
     ...,
-    
+
         bds-DifferentialCorrections-r12
                                     BDS-DifferentialCorrections-r12 OPTIONAL,   -- Cond GNSS-ID-BDS
         bds-GridModel-r12           BDS-GridModelParameter-r12      OPTIONAL    -- Cond GNSS-ID-BDS
-    
+
 }
 
 -- ASN1STOP
@@ -1279,7 +1279,7 @@ NetworkTime ::= SEQUENCE {
                             earfcn              ARFCN-ValueEUTRA,
                             ...,
                              earfcn-v9a0      ARFCN-ValueEUTRA-v9a0 OPTIONAL  -- Cond EARFCN-max
-                            
+
                             },
                 uTRA        SEQUENCE {
                             mode    CHOICE {
@@ -1441,7 +1441,7 @@ GNSS-NavModelSatelliteElement ::= SEQUENCE {
     gnss-OrbitModel     GNSS-OrbitModel,
     ...,
       svHealthExt-v1240 BIT STRING (SIZE(4))          OPTIONAL        -- Need ON
-    
+
 }
 
 GNSS-ClockModel ::= CHOICE {
@@ -1780,7 +1780,7 @@ GNSS-Almanac ::= SEQUENCE {
     ...,
       toa-ext-v1240           INTEGER (256..1023) OPTIONAL,   -- Need ON
         ioda-ext-v1240          INTEGER (4..15)     OPTIONAL    -- Need ON
-    
+
 }
 
 GNSS-AlmanacList ::= SEQUENCE (SIZE(1..64)) OF GNSS-AlmanacElement
@@ -2120,12 +2120,12 @@ GNSS-GenericAssistDataReqElement ::= SEQUENCE {
     gnss-UTCModelReq                GNSS-UTC-ModelReq               OPTIONAL, -- Cond UTCModReq
     gnss-AuxiliaryInformationReq    GNSS-AuxiliaryInformationReq    OPTIONAL, -- Cond AuxInfoReq
     ...,
-    
+
         bds-DifferentialCorrectionsReq-r12
                                     BDS-DifferentialCorrectionsReq-r12
                                                                     OPTIONAL,   -- Cond DBDS-Req
         bds-GridModelReq-r12        BDS-GridModelReq-r12            OPTIONAL    -- Cond BDS-GridModReq
-    
+
 }
 
 -- ASN1STOP
@@ -2442,7 +2442,7 @@ A-GNSS-ProvideCapabilities ::= SEQUENCE {
                                 PositioningModes                OPTIONAL,
         idleStateForMeasurements-r14
                                 ENUMERATED { required }         OPTIONAL
-    
+
 }
 
 GNSS-SupportList ::= SEQUENCE (SIZE(1..16)) OF GNSS-SupportElement
@@ -2544,13 +2544,13 @@ GNSS-GenericAssistDataSupportElement ::= SEQUENCE {
     gnss-AuxiliaryInformationSupport    GNSS-AuxiliaryInformationSupport
                                                                     OPTIONAL, -- Cond AuxInfoSup
     ...,
-    
+
         bds-DifferentialCorrectionsSupport-r12
                                         BDS-DifferentialCorrectionsSupport-r12
                                                                     OPTIONAL, -- Cond DBDS-Sup
         bds-GridModelSupport-r12        BDS-GridModelSupport-r12
                                                                     OPTIONAL     -- Cond BDS-GridModSup
-    
+
 }
 
 -- ASN1STOP
@@ -2808,7 +2808,7 @@ MeasuredResultsElement ::= SEQUENCE {
        carrierFreqOffsetNB-r14
                             CarrierFreqOffsetNB-r14     OPTIONAL,       -- Cond NB-IoT
        hyperSFN-r14         BIT STRING (SIZE (10))      OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -2838,7 +2838,7 @@ ECID-ProvideCapabilities ::= SEQUENCE {
       periodicalReporting-r14             ENUMERATED { supported }        OPTIONAL,
         triggeredReporting-r14              ENUMERATED { supported }        OPTIONAL,
         idleStateForMeasurements-r14        ENUMERATED { required }         OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -2880,10 +2880,10 @@ ECID-TargetDeviceErrorCauses ::= SEQUENCE {
     rsrqMeasurementNotPossible              NULL        OPTIONAL,
     ueRxTxMeasurementNotPossible            NULL        OPTIONAL,
     ...,
-    
+
       nrsrpMeasurementNotPossible-r14       NULL        OPTIONAL,
       nrsrqMeasurementNotPossible-r14       NULL        OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -2915,7 +2915,7 @@ MBS-BeaconMeasElement-r13 ::= SEQUENCE {
     codePhaseRMSError-r13           INTEGER (0..63),
     ...,
      rssi-r14                     INTEGER (-130..-30)     OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -2927,7 +2927,7 @@ TBS-RequestLocationInformation-r13 ::= SEQUENCE {
       mbsAssistanceAvailability-r14   BOOLEAN                         OPTIONAL,   -- Need ON
         mbsRequestedMeasurements-r14    BIT STRING {
                                         rssi        (0)} (SIZE(1..8))   OPTIONAL    -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -2945,7 +2945,7 @@ TBS-ProvideCapabilities-r13 ::= SEQUENCE {
                                                 tb3     (2),
                                                 tb4     (3)} (SIZE (1..8))          OPTIONAL,
         mbs-IdleStateForMeasurements-r14        ENUMERATED { required }             OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -3072,12 +3072,12 @@ Sensor-MeasurementInformation-r13 ::= SEQUENCE {
     measurementReferenceTime-r13            UTCTime                     OPTIONAL,
     uncompensatedBarometricPressure-r13     INTEGER (30000..115000)     OPTIONAL, -- Cond Barometer
     ...,
-    
+
     uncertainty-r14                 SEQUENCE {
                                     range-r14       INTEGER (0..1000),
                                     confidence-r14  INTEGER (1..100)
                                     }                                   OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -3087,7 +3087,7 @@ Sensor-RequestLocationInformation-r13 ::= SEQUENCE {
     uncompensatedBarometricPressureReq-r13      BOOLEAN,
     ...,
       assistanceAvailability-r14              BOOLEAN     OPTIONAL    -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -3101,7 +3101,7 @@ Sensor-ProvideCapabilities-r13 ::= SEQUENCE {
       sensor-AssistanceDataSupportList-r14    Sensor-AssistanceDataSupportList-r14    OPTIONAL,
         periodicalReportingSupported-r14        PositioningModes                        OPTIONAL,
         idleStateForMeasurements-r14            ENUMERATED { required }                 OPTIONAL
-    
+
 }
 
 Sensor-AssistanceDataSupportList-r14 ::= SEQUENCE {
@@ -3232,7 +3232,7 @@ WLAN-RequestLocationInformation-r13 ::= SEQUENCE {
                                             rtt         (1)} (SIZE(1..8)),
     ...,
       assistanceAvailability-r14  BOOLEAN         OPTIONAL    -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -3253,7 +3253,7 @@ WLAN-ProvideCapabilities-r13 ::= SEQUENCE {
         periodicalReportingSupported-r14    PositioningModes                        OPTIONAL,
         idleStateForMeasurements-r14
                             ENUMERATED {    required    }                           OPTIONAL
-    
+
 }
 
 -- ASN1STOP
@@ -3283,7 +3283,7 @@ WLAN-LocationServerErrorCauses-r13 ::= SEQUENCE {
                                                         },
     ...,
       apLocationDataUnavailable-r14       NULL    OPTIONAL        -- Need ON
-    
+
 }
 
 -- ASN1STOP
@@ -3446,12 +3446,12 @@ BT-ProvideCapabilities-r13 ::= SEQUENCE {
                                             ue-assisted     (1)}    (SIZE (1..8)),
     bt-MeasSupported-r13    BIT STRING {    rssi-r13        (0)}    (SIZE (1..8)),
     ...,
-    
+
     idleStateForMeasurements-r14
                             ENUMERATED {    required    }                           OPTIONAL,
     periodicalReportingSupported-r14
                             PositioningModes                                        OPTIONAL
-    
+
 }
 
 -- ASN1STOP

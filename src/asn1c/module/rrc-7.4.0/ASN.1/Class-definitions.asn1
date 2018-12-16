@@ -6,7 +6,7 @@ IMPORTS
 
 	ActiveSetUpdate,
 	ActiveSetUpdateComplete,
-	ActiveSetUpdateFailure,	
+	ActiveSetUpdateFailure,
 	AssistanceDataDelivery,
 	CellChangeOrderFromUTRAN,
 	CellChangeOrderFromUTRANFailure,
@@ -197,7 +197,7 @@ DL-CCCH-Message ::= SEQUENCE {
 	message					DL-CCCH-MessageType
 }
 
-DL-CCCH-MessageType ::= CHOICE {	
+DL-CCCH-MessageType ::= CHOICE {
 	cellUpdateConfirm					CellUpdateConfirm-CCCH,
 	rrcConnectionReject					RRCConnectionReject,
 	rrcConnectionRelease				RRCConnectionRelease-CCCH,
