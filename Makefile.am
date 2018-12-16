@@ -1356,5 +1356,5 @@ $(libasn1c_module_supl2_la_SOURCES): $(SUPL_2_0_3_ASN1_FILES)
 
 $(libasn1c_module_rrlp14_la_SOURCES): $(RRLP_14_3_0_ASN1_FILES)
 	rm -f ${@}
-	if pushd ../src/asn1c/module/rrlp-14.3.0 > /dev/null; then asn1c -S ../../skeletons -fcompound-names -gen-PER -pdu=auto -R ASN.1/*asn1; popd > /dev/null; fi
+	if pushd ../src/asn1c/module/rrlp-14.3.0 > /dev/null; then asn1c -S ../../skeletons -fcompound-names -gen-PER -pdu=auto -R ASN.1/*.asn1; popd > /dev/null; fi
 

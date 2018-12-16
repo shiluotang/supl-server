@@ -7,12 +7,13 @@
 #include <vector>
 #include <algorithm>
 
+#include <openssl/sha.h>
+
+#include "../src/asn1c/module/supl-2.0.3/SUPLSTART.h"
+
 #include "../src/misc/memblock.hpp"
 #include "../src/misc/utils.hpp"
 #include "../src/server/supl-server.hpp"
-#include "../src/asn1c/module/supl-2.0.3/SUPLSTART.h"
-
-#include <openssl/sha.h>
 
 SUPL_SERVER_BEGIN_DECLS
 
