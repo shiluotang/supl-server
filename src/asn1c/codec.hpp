@@ -6,9 +6,9 @@
 #include <utility>
 #include <iosfwd>
 
-#include "../macros.hpp"
-
 #include "skeletons/asn_application.h"
+
+#include "../macros.hpp"
 
 SUPL_SERVER_BEGIN_DECLS
 
@@ -71,7 +71,7 @@ public:
         // TODO not implemented yet!
         return true;
     }
-    
+
     template <typename T>
     buffer_type encode(::asn_TYPE_descriptor_t &td, T &instance) {
         // TODO not implemented yet!
