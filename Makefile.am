@@ -3,7 +3,7 @@ ACLOCAL_AMFLAGS = -I m4
 AM_CPPFLAGS	= -g -Wall -I@top_srcdir@/src/asn1c/skeletons $(OPENSSL_CFLAGS)
 AM_CFLAGS	=
 AM_CXXFLAGS	=
-AM_LDFLAGS	= $(OPENSSL_LIBS)
+AM_LDFLAGS	= -no-undefined
 
 lib_LTLIBRARIES = \
 libasn1c-skeletons.la \
@@ -1297,13 +1297,17 @@ libasn1c-module-rrlp14.la \
 libsupl-server-misc.la \
 libasn1c-codecxx.la
 
-check_PROGRAMS = test1
+check_PROGRAMS =
 
-test1_SOURCES = \
-./tests/test1.cpp
+check_PROGRAMS += test1
+test1_SOURCES = ./tests/test1.cpp
+test1_LDADD = $(lib_LTLIBRARIES)
+test1_LDFLAGS = $(AM_LDFLAGS) $(OPENSSL_LIBS)
 
-test1_LDADD = \
-$(lib_LTLIBRARIES)
+check_PROGRAMS += test2
+test2_SOURCES = ./tests/test2.cpp
+test2_LDADD = $(lib_LTLIBRARIES)
+test2_LDFLAGS = $(AM_LDFLAGS) $(OPENSSL_LIBS)
 
 TESTS = $(check_PROGRAMS)
 
@@ -1351,10 +1355,21 @@ $(libasn1c_module_supl2_la_SOURCES) \
 $(libasn1c_module_rrlp14_la_SOURCES)
 
 $(libasn1c_module_supl2_la_SOURCES): $(SUPL_2_0_3_ASN1_FILES)
-	rm -f ${@}
-	if pushd ../src/asn1c/module/supl-2.0.3 > /dev/null; then asn1c -S ../../skeletons -fcompound-names -gen-PER -pdu=auto -R ASN.1/*.asn1; popd > /dev/null; fi
+	@echo asn1c $(top_srcdir)/${@}
+	@if ! test -f libasn1c_module_supl2_la_SOURCES.built; then \
+		if pushd ../src/asn1c/module/supl-2.0.3 > /dev/null; then \
+			asn1c -S ../../skeletons -fcompound-names -fincludes-quoted -gen-PER -pdu=auto -R ASN.1/*.asn1 2> /dev/null; \
+			popd > /dev/null; \
+		fi; \
+		touch libasn1c_module_supl2_la_SOURCES.built; \
+	fi
 
 $(libasn1c_module_rrlp14_la_SOURCES): $(RRLP_14_3_0_ASN1_FILES)
-	rm -f ${@}
-	if pushd ../src/asn1c/module/rrlp-14.3.0 > /dev/null; then asn1c -S ../../skeletons -fcompound-names -gen-PER -pdu=auto -R ASN.1/*.asn1; popd > /dev/null; fi
-
+	@echo asn1c $(top_srcdir)/${@}
+	@if ! test -f libasn1c_module_rrlp14_la_SOURCES.built; then \
+		if pushd ../src/asn1c/module/rrlp-14.3.0 > /dev/null; then \
+			asn1c -S ../../skeletons -fcompound-names -fincludes-quoted -gen-PER -pdu=auto -R ASN.1/*.asn1 2> /dev/null; \
+			popd > /dev/null; \
+		fi; \
+		touch libasn1c_module_rrlp14_la_SOURCES.built; \
+	fi

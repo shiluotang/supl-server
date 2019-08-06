@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <utility>
 #include <iosfwd>
+#include <sstream>
 
 #include "skeletons/asn_application.h"
 
@@ -67,15 +68,15 @@ public:
     typedef std::vector<byte> buffer_type;
 public:
     template <typename T>
-    bool encode(::asn_TYPE_descriptor_t &td, T &instance, buffer_type &buffer) {
-        // TODO not implemented yet!
-        return true;
+    static bool encode(::asn_TYPE_descriptor_t &td, T &instance, buffer_type &buffer) {
+        return encode0(td, &instance, buffer, false);
     }
 
     template <typename T>
-    buffer_type encode(::asn_TYPE_descriptor_t &td, T &instance) {
-        // TODO not implemented yet!
-        return buffer_type();
+    static buffer_type encode(::asn_TYPE_descriptor_t &td, T &instance) {
+        buffer_type buffer;
+        encode0(td, &instance, buffer, true);
+        return buffer;
     }
 
 private:

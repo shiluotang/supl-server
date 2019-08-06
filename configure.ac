@@ -26,6 +26,7 @@ PKG_CHECK_MODULES([OPENSSL], [openssl])
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
+AC_CHECK_FUNCS([setenv unsetenv])
 
 AC_CONFIG_FILES([Makefile])
 

@@ -150,8 +150,6 @@ int main(int argc, char *argv[]) try {
     if (infile.eof())
         std::cout << "sha256 of " << filename << " is " << std::endl << algo.complete() << std::endl;
 
-    SUPLSTART_t start;
-
     return EXIT_SUCCESS;
 } catch (std::exception const &e) {
     std::cerr << "[C++ exception] " << e.what() << std::endl;
