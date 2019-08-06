@@ -1357,7 +1357,7 @@ $(libasn1c_module_rrlp14_la_SOURCES)
 $(libasn1c_module_supl2_la_SOURCES): $(SUPL_2_0_3_ASN1_FILES)
 	@echo asn1c $(top_srcdir)/${@}
 	@if ! test -f libasn1c_module_supl2_la_SOURCES.built; then \
-		if pushd ../src/asn1c/module/supl-2.0.3 > /dev/null; then \
+		if pushd $(top_srcdir)/src/asn1c/module/supl-2.0.3 > /dev/null; then \
 			asn1c -S ../../skeletons -fcompound-names -fincludes-quoted -gen-PER -pdu=auto -R ASN.1/*.asn1 2> /dev/null; \
 			popd > /dev/null; \
 		fi; \
@@ -1367,7 +1367,7 @@ $(libasn1c_module_supl2_la_SOURCES): $(SUPL_2_0_3_ASN1_FILES)
 $(libasn1c_module_rrlp14_la_SOURCES): $(RRLP_14_3_0_ASN1_FILES)
 	@echo asn1c $(top_srcdir)/${@}
 	@if ! test -f libasn1c_module_rrlp14_la_SOURCES.built; then \
-		if pushd ../src/asn1c/module/rrlp-14.3.0 > /dev/null; then \
+		if pushd $(top_srcdir)/src/asn1c/module/rrlp-14.3.0 > /dev/null; then \
 			asn1c -S ../../skeletons -fcompound-names -fincludes-quoted -gen-PER -pdu=auto -R ASN.1/*.asn1 2> /dev/null; \
 			popd > /dev/null; \
 		fi; \
