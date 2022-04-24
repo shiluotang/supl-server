@@ -18,17 +18,19 @@ struct basic_ios_guarder {
     typedef std::streamsize streamsize;
 
     basic_ios_guarder(xios &stream)
-        : _M_stream(stream),
-        _M_flags(stream.flags()),
-        _M_precision(stream.precision()),
-        _M_fillchar(stream.fill()),
-        _M_locale(stream.getloc())
+        : _M_stream(stream)
+        , _M_flags(stream.flags())
+        , _M_precision(stream.precision())
+        , _M_width(stream.width())
+        , _M_fillchar(stream.fill())
+        , _M_locale(stream.getloc())
     {
     }
 
     virtual ~basic_ios_guarder() {
         _M_stream.flags(_M_flags);
         _M_stream.precision(_M_precision);
+        _M_stream.width(_M_width);
         _M_stream.fill(_M_fillchar);
         _M_stream.imbue(_M_locale);
     }
@@ -36,6 +38,7 @@ struct basic_ios_guarder {
     xios        &_M_stream;
     fmtflags    _M_flags;
     streamsize  _M_precision;
+    streamsize  _M_width;
     char_type   _M_fillchar;
     std::locale _M_locale;
 };

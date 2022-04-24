@@ -2,42 +2,43 @@
 #include <ostream>
 
 #include "utils.hpp"
-#include "memblock.hpp"
+#include "bytes.hpp"
 
 SUPL_SERVER_BEGIN_DECLS
 
-memblock::memblock(void const *data, std::size_t size)
-    : _M_buffer(size), _M_size(size) {
-    byte const *p = reinterpret_cast<byte const *>(data);
+bytes::bytes(void const *data, std::size_t size)
+    : _M_buffer(size)
+    , _M_size(size) {
+    byte const *p = reinterpret_cast<byte const*>(data);
     std::copy(p, p + size, &_M_buffer[0]);
 }
 
-void const *memblock::address() const { return &_M_buffer[0]; }
+void const* bytes::address() const { return &_M_buffer[0]; }
 
-void *memblock::address() { return &_M_buffer[0]; }
+void* bytes::address() { return &_M_buffer[0]; }
 
-std::size_t memblock::size() const { return _M_size; }
+std::size_t bytes::size() const { return _M_size; }
 
-memblock &memblock::assign(void const *data, std::size_t size) {
+bytes &bytes::assign(void const *data, std::size_t size) {
     _M_buffer.resize(size);
-    byte const *p = reinterpret_cast<byte const *>(data);
+    byte const *p = reinterpret_cast<byte const*>(data);
     std::copy(p, p + size, &_M_buffer[0]);
     _M_size = size;
     return *this;
 }
 
-memblock &memblock::append(void const *data, std::size_t size) {
-    byte const *p = reinterpret_cast<byte const *>(data);
+bytes &bytes::append(void const *data, std::size_t size) {
+    byte const *p = reinterpret_cast<byte const*>(data);
     _M_buffer.insert(_M_buffer.end(), p, p + size);
     _M_size += size;
     return *this;
 }
 
 
-std::ostream &operator<<(std::ostream &os, memblock const &block) {
+std::ostream &operator<<(std::ostream &os, bytes const &block) {
     using namespace org::sqg::supl;
 
-    typedef memblock::byte byte;
+    typedef bytes::byte byte;
 
     int const WIDTH = 16;
     int const HALF_WIDTH = WIDTH / 2;

@@ -1,9 +1,9 @@
 ACLOCAL_AMFLAGS = -I m4
 
-AM_CPPFLAGS	= -g -Wall -I@top_srcdir@/src/asn1c/skeletons $(OPENSSL_CFLAGS)
+AM_CPPFLAGS	= -Wall -D_DEFAULT_SOURCE -I@top_srcdir@/src/asn1c/skeletons $(OPENSSL_CFLAGS)
 AM_CFLAGS	=
 AM_CXXFLAGS	=
-AM_LDFLAGS	= -no-undefined
+AM_LDFLAGS	= -no-undefined $(OPENSSL_LIBS)
 
 lib_LTLIBRARIES = \
 libasn1c-skeletons.la \
@@ -1279,7 +1279,7 @@ libasn1c_module_rrlp14_la_LIBADD = \
 libasn1c-skeletons.la
 
 libsupl_server_misc_la_SOURCES = \
-./src/misc/memblock.cpp
+./src/misc/bytes.cpp
 
 libasn1c_codecxx_la_SOURCES = \
 ./src/asn1c/codec.cpp

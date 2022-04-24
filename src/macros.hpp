@@ -12,10 +12,8 @@
         } \
     }
 #else
-#   define SUPL_SERVER_BEGIN_DECLS \
-    extern "C" {
-#   define SUPL_SERVER_END_DECLS \
-    }
+#   define SUPL_SERVER_BEGIN_DECLS
+#   define SUPL_SERVER_END_DECLS
 #endif
 
 #endif // SUPL_SERVER_MACROS_HPP_INCLUDED
